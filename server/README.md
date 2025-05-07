@@ -1,4 +1,12 @@
-# Questions
+# didact/server
+
+Read the code in the following order
+
+1) General structure given below
+2) public/index.html
+3) public/index.js
+4) public/Counter.js
+5) public/didact/ files in order (most are numbered 1createFiberElements.js, 2manipulateDom.js, etc)
 
 ### What is the general structure of the code?
 

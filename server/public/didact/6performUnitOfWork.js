@@ -38,6 +38,8 @@ function updateHostComponent(fiber) {
 }
 
 function reconcileChildren(wipFiber, elements) {
+  // create new fibers for wipFiber children
+  // also sets the parent, sibling and child properties to connect them
   let index = 0
   let oldFiber =
     wipFiber.alternate && wipFiber.alternate.child

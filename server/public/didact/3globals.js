@@ -11,7 +11,7 @@ let deletions = null;       //
 let wipFiber = null;
 // A global variable which is set to the current fiber when we updateFunctionComponent.
 // That way, useState can access it.
-let hookIndex = null        // similar to wipFiber
+let hookIndex = null        // (similar to wipFiber but for iterating over the hook array)
 
 const G = {
     nextUnitOfWork,

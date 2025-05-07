@@ -11,7 +11,10 @@ function workLoop(deadline) {
     shouldYield = deadline.timeRemaining() < 1
   }
 
-  if (!G.nextUnitOfWork && G.wipRoot) {
+  // avoid committing in the middle of figuring what to commit
+  const isInMiddleOfWork = G.nextUnitOfWork;
+  const hasChangesToCommit = G.wipRoot;
+  if (!isInMiddleOfWork && hasChangesToCommit) {
     commitRoot()
   }
 

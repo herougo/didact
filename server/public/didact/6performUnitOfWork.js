@@ -19,6 +19,7 @@ function performUnitOfWork(fiber) {
     }
     nextFiber = nextFiber.parent
   }
+  return null;
 }
   
 function updateFunctionComponent(fiber) {

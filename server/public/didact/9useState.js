@@ -1,12 +1,10 @@
-import {
-  nextUnitOfWork, currentRoot, wipRoot, deletions, wipFiber, hookIndex
-} from './3globals.js';
+import G from './3globals.js';
 
 function useState(initial) {
   const oldHook =
-    wipFiber.alternate &&
-    wipFiber.alternate.hooks &&
-    wipFiber.alternate.hooks[hookIndex]
+    G.wipFiber.alternate &&
+    G.wipFiber.alternate.hooks &&
+    G.wipFiber.alternate.hooks[G.hookIndex]
   const hook = {
     state: oldHook ? oldHook.state : initial,
     queue: [],
@@ -19,17 +17,17 @@ function useState(initial) {
 
   const setState = action => {
     hook.queue.push(action)
-    wipRoot = {
-      dom: currentRoot.dom,
-      props: currentRoot.props,
-      alternate: currentRoot,
+    G.wipRoot = {
+      dom: G.currentRoot.dom,
+      props: G.currentRoot.props,
+      alternate: G.currentRoot,
     }
-    nextUnitOfWork = wipRoot
-    deletions = []
+    G.nextUnitOfWork = G.wipRoot
+    G.deletions = []
   }
 
-  wipFiber.hooks.push(hook)
-  hookIndex++
+  G.wipFiber.hooks.push(hook)
+  G.hookIndex++
   return [hook.state, setState]
 }
 

@@ -1,6 +1,7 @@
 let nextUnitOfWork = null;  // next "unit of work" to do
 /* What is a unit of work?
    - render a functional component
+   - ????
 */
 let currentRoot = null;     // root of the current fiber tree
 let wipRoot = null;         // root of the fiber tree to eventually commit
@@ -12,6 +13,13 @@ let wipFiber = null;
 // That way, useState can access it.
 let hookIndex = null        // similar to wipFiber
 
-export {
-    nextUnitOfWork, currentRoot, wipRoot, deletions, wipFiber, hookIndex
-}
+const G = {
+    nextUnitOfWork,
+    currentRoot,
+    wipRoot,
+    deletions,
+    wipFiber,
+    hookIndex
+};
+
+export default G;

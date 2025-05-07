@@ -1,13 +1,12 @@
-import {
-    nextUnitOfWork, currentRoot, wipRoot, deletions, wipFiber, hookIndex
-} from './3globals.js'
+import G from './3globals.js';
+import { updateDom } from './2manipulateDom.js';
 
 function commitRoot() {
-  deletions.forEach(commitWork)
-  commitWork(wipRoot.child)
+  G.deletions.forEach(commitWork)
+  commitWork(G.wipRoot.child)
 
-  currentRoot = wipRoot
-  wipRoot = null
+  G.currentRoot = G.wipRoot
+  G.wipRoot = null
 }
 
 function commitWork(fiber) {

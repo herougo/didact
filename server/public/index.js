@@ -327,3 +327,7 @@ function Counter() {
     )
   );
 }
+
+const element = createElement(Counter, {});
+const container = document.getElementById("root");
+Didact.render(element, container);

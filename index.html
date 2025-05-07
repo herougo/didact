@@ -2,7 +2,14 @@
 <html>
 <head>
 	<title>	</title>
-	<script type="text/javascript" src="./didact.js"></script>
+	<script type="text/javascript" src="./src/index.js"></script>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", function(event) { 
+			const element = createElement(Counter, {});
+			const container = document.getElementById("root");
+			Didact.render(element, container);
+		});
+	</script>
 </head>
 <body>
     <div id="root"></div>
